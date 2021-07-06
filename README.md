@@ -81,4 +81,13 @@ The notification module of the app has been refactored and migrated to Azure Ser
 https://tech-conf-app.azurewebsites.net/
 
 ## Screenshots
-![](screenshots/2021-05-23-20-38-36.png)
+![](screenshots/App-Service-Plan.png)
+![](screenshots/App-Service.png)
+![](screenshots/Web-App-running.png)
+![](screenshots/PostgreSQL-server.png)
+![](screenshots/list-of-attendee.png)
+![](screenshots/list-of-notifications.png)
+![](screenshots/Azure-Function-App.png)
+![](screenshots/filled-out-Send-Notification.png)
+![](screenshots/Notifications-submitted.png)
+![](screenshots/Notified-5-attendees.png)
