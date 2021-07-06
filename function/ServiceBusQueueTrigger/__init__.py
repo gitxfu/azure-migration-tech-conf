@@ -22,7 +22,7 @@ def main(msg: func.ServiceBusMessage):
     try:
         # TODO: Get notification message and subject from database using the notification_id
         #  executes the given database operation (query or command). 
-        cursor.execute('SELECT message, subject FROM notification where id = %s',str(notification_id))
+        cursor.execute("SELECT message, subject FROM notification WHERE id = {};".format(notification_id))
         (massage, subject) = cursor.fetchone()
 
         # TODO: Get attendees email and name

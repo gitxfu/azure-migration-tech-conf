@@ -77,3 +77,8 @@ The front-end web app has been migrated to Azure App Service, which gets and sen
 
 The notification module of the app has been refactored and migrated to Azure Service Bus and Function App. When admin users creates a notification, the app sends messages to the Azure Service Bus Queues. The message queue can help level the load by providing a place to buffer communications when the app experiences bursts of communications, such as sending notifications to thousands of conference attendees. Then the Azure Function App gets the message from the queue and sends e-mail notifications to all attendees via SendGrid and update the notification status in the Postgres SQL database. We can also easily move up to a higher tier of Azure Service Bus for high throughput and autoscaling senarios.
 
+## Live url
+https://tech-conf-app.azurewebsites.net/
+
+## Screenshots
+![](screenshots/2021-05-23-20-38-36.png)
