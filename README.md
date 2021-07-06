@@ -63,9 +63,19 @@ Complete a month cost analysis of each Azure resource to give an estimate total 
 
 | Azure Resource | Service Tier | Monthly Cost |
 | ------------ | ------------ | ------------ |
-| *Azure Postgres Database* |     |              |
-| *Azure Service Bus*   |         |              |
-| ...                   |         |              |
+| *Azure Postgres Database* |  Basic, 1 vCore(s), 5 GB   |    $25.8    |
+| *Azure Service Bus*   |      Basic   |      $0.05        |
+| *Azure App Service*  |     F1     |      $0.00        |
+| *Azure Function App*  |     consumption     |      < $0.01        |
+| *Storage Account*  |     general purpose v2    |       $0.00        |
+| *Total*  |        |       ~$26.00        |
 
 ## Architecture Explanation
 This is a placeholder section where you can provide an explanation and reasoning for your architecture selection for both the Azure Web App and Azure Function.
+
+Tech Conf was a monilithic conference registration application running locally with a Postgres SQL database. For the migration project, I used Azure Postgres Database single server for the database migration. At the early phase, a basic plan would be enough. 
+
+The front-end web app has been migrated to Azure App Service, which gets and sends data to the Azure Postgres Database. The Azure App Service is a good option because we can autoscale our resources depending on the demand from users. It is also easier to manage App Service than VM.
+
+The notification module of the app has been refactored and migrated to Azure Service Bus and Function App. When admin users creates a notification, the app sends messages to the Azure Service Bus Queues. The message queue can help level the load by providing a place to buffer communications when the app experiences bursts of communications, such as sending notifications to thousands of conference attendees. Then the Azure Function App gets the message from the queue and sends e-mail notifications to all attendees via SendGrid and update the notification status in the Postgres SQL database. We can also easily move up to a higher tier of Azure Service Bus for high throughput and autoscaling senarios.
+
