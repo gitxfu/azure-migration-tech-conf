@@ -71,8 +71,6 @@ Complete a month cost analysis of each Azure resource to give an estimate total 
 | *Total*  |        |       ~$26.00        |
 
 ## Architecture Explanation
-This is a placeholder section where you can provide an explanation and reasoning for your architecture selection for both the Azure Web App and Azure Function.
-
 Tech Conf was a monilithic conference registration application running locally with a Postgres SQL database. For the migration project, I used Azure Postgres Database single server for the database migration. At the early phase, a basic plan would be enough. 
 
 The front-end web app has been migrated to Azure App Service, which gets and sends data to the Azure Postgres Database. The Azure App Service is a good option because we can autoscale our resources depending on the demand from users. It is also easier to manage App Service than VM.
